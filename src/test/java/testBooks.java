@@ -56,6 +56,6 @@ public class testBooks {
         RestUtils.performDelete(
                 Endpoints.DELETE_SPECIFIC_BOOK,
                 generatedID,
-                201);
+                201); // fail status
     }
 }
