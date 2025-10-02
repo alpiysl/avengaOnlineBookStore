@@ -141,7 +141,7 @@ After test execution, an HTML report is automatically generated in the `extent-r
 
 #### Sample Report Screenshot
 
-![Extent Report Screenshot](docs/extent-report-screenshot.png)
+![Extent Report Screenshot](docs/reportExample.png)
 
 _The report shows detailed test execution with timestamps, status, and comprehensive API request/response details._
 
@@ -185,15 +185,12 @@ Base URL: `https://fakerestapi.azurewebsites.net/api/v1/`
 
 ### 1. **Data Generation**
 
-- Uses JavaFaker to generate realistic test data
-- Random IDs, titles, and boolean values
-- ISO 8601 formatted timestamps
+- Uses JavaFaker to generate test data
+- Formatted timestamps
 
 ### 2. **Comprehensive Logging**
 
 - Request/response logging in ExtentReports
-- Color-coded test results (Green = Pass, Red = Fail)
-- Detailed exception stack traces
 - API endpoint, method, headers, and body logging
 
 ### 3. **Modular Design**
@@ -207,4 +204,3 @@ Base URL: `https://fakerestapi.azurewebsites.net/api/v1/`
 
 - Automatic test failure reporting
 - Stack trace capture and formatting
-- Continue-on-error in CI/CD pipeline
