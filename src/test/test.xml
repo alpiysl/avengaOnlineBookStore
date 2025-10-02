@@ -8,7 +8,7 @@
 
     <test name="test">
         <classes>
-            <class name="testAuthors"> </class>
+            <class name="testActivities"> </class>
         </classes>
     </test>
 </suite>

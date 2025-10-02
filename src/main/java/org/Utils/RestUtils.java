@@ -6,8 +6,9 @@ import io.restassured.response.Response;
 import io.restassured.specification.QueryableRequestSpecification;
 import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.SpecificationQuerier;
+import org.Endpoints.RequestTypes;
 import org.Reporter.ExtentReportManager;
-import org.testng.Assert;
+import org.json.JSONObject;
 
 import java.util.Map;
 
@@ -22,26 +23,20 @@ public class RestUtils {
         BASE_URI = "https://fakerestapi.azurewebsites.net";
     }
 
-    private static RequestSpecification postRequestSpecification(Object requestPayload) {
-        return given()
-                .baseUri(BASE_URI)
-                .contentType(ContentType.JSON)
-                .body(requestPayload);
-    }
-
-    private static RequestSpecification getRequestSpecification() {
+    //returns body request specification
+    private static RequestSpecification requestSpecification() {
         return given()
                 .baseUri(BASE_URI)
                 .contentType(ContentType.JSON);
     }
 
-    private static void printRequestReport(RequestSpecification requestSpecification,String requestType) {
+    private static void printRequestReport(RequestSpecification requestSpecification, String requestType) {
         QueryableRequestSpecification queryableRequestSpecification = SpecificationQuerier.query(requestSpecification);
         ExtentReportManager.logInfoDetails("Endpoint is " + queryableRequestSpecification.getBaseUri());
         ExtentReportManager.logInfoDetails("Method is " + queryableRequestSpecification.getMethod());
         ExtentReportManager.logInfoDetails("Headers are ");
         ExtentReportManager.logHeaders(queryableRequestSpecification.getHeaders().asList());
-        if(!requestType.equalsIgnoreCase("GET")) {
+        if (!requestType.equalsIgnoreCase("GET")) {
             ExtentReportManager.logInfoDetails("Request body is ");
             ExtentReportManager.logJson(queryableRequestSpecification.getBody());
         }
@@ -55,19 +50,43 @@ public class RestUtils {
         ExtentReportManager.logJson(response.getBody().prettyPrint());
     }
 
-    public static Response performPost(String reqType,String endPoint, Map<String, Object> requestPayload) {
-        RequestSpecification requestSpecification = postRequestSpecification(requestPayload);
-        Response response =  requestSpecification.post(endPoint);
-        printRequestReport(requestSpecification,reqType);
+    public static void performPost(String endPoint, Map<String, Object> requestPayload, int statusCode) {
+        RequestSpecification requestSpecification = requestSpecification();
+        Response response = requestSpecification.body(requestPayload).log().all().post(endPoint);
+        assertEquals(response.statusCode(), statusCode); //asserts status code with actual
+        printRequestReport(requestSpecification, RequestTypes.POST.value);
         printResponseReport(response);
-        return response;
     }
 
-    public static void performGet(String endPoint,String reqType,int statusCode) {
-        RequestSpecification requestSpecification = getRequestSpecification();
-        Response response =  requestSpecification.get(endPoint);
-        assertEquals(response.statusCode(),statusCode);
-        printRequestReport(requestSpecification,reqType);
+    public static void performGet(String endPoint, int statusCode) {
+        RequestSpecification requestSpecification = requestSpecification();
+        Response response = requestSpecification.log().all().get(endPoint);
+        assertEquals(response.statusCode(), statusCode); //asserts status code with actual
+        printRequestReport(requestSpecification, RequestTypes.GET.value);
+        printResponseReport(response);
+    }
+
+    public static void performGetWithId(String endPoint, int statusCode, int id) {
+        RequestSpecification requestSpecification = requestSpecification();
+        Response response = requestSpecification.log().all().get(endPoint, id);
+        assertEquals(response.statusCode(), statusCode); //asserts status code with actual
+        printRequestReport(requestSpecification, RequestTypes.GET.value);
+        printResponseReport(response);
+    }
+
+    public static void performDelete(String endPoint, int id, int statusCode) {
+        RequestSpecification requestSpecification = requestSpecification();
+        Response response = requestSpecification.log().all().delete(endPoint, id);
+        assertEquals(response.statusCode(), statusCode); //asserts status code with actual
+        printRequestReport(requestSpecification, RequestTypes.DELETE.value);
+        printResponseReport(response);
+    }
+
+    public static void performPut(String endPoint, Map<String, Object> requestPayload, int id, int statusCode) {
+        RequestSpecification requestSpecification = requestSpecification();
+        Response response = requestSpecification.body(requestPayload).put(endPoint, id);
+        assertEquals(response.statusCode(), statusCode); //asserts status code with actual
+        printRequestReport(requestSpecification, RequestTypes.PUT.value);
         printResponseReport(response);
     }
 }

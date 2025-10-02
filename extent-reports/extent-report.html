@@ -35,7 +35,7 @@
 <a href="#"><span class="badge badge-primary">Test API Automation Report</span></a>
 </li>
 <li class="m-r-10">
-<a href="#"><span class="badge badge-primary">Oct 2, 2025 03:10:32 AM</span></a>
+<a href="#"><span class="badge badge-primary">Oct 2, 2025 03:40:55 PM</span></a>
 </li>
 </ul>
 </div>
@@ -66,7 +66,7 @@
 <li class="dropdown">
 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-exclamation-circle"></i></a>
 <ul id="status-toggle" class="dropdown-menu dropdown-md p-v-0">
-<a class="dropdown-item" status="fail" href="#"><span>Fail</span><span class="status danger"></span></a>
+<a class="dropdown-item" status="pass" href="#"><span>Pass</span><span class="status success"></span></a>
 <div class="dropdown-divider"></div>
 <a status="clear" class="dropdown-item" href="#"><span>Clear</span><span class="pull-right"><i class="fa fa-close"></i></span></a>
 </ul>
@@ -74,50 +74,770 @@
 </ul>
 </div>    <div class="test-list-wrapper scrollable">
       <ul class="test-list-item">
-        <li class="test-item"  status="fail" test-id="1"
+        <li class="test-item"  status="pass" test-id="1"
           author=""
           tag=""
           device="">
           <div class="test-detail">
-            <p class="name">Test Name testAuthors - test1</p>
+            <p class="name">Test Name testActivities - GET</p>
             <p class="text-sm">
-              <span>3:10:32 AM</span> / <span>00:00:00:840</span>
-              <span class="badge fail-bg log float-right">Fail</span>
+              <span>3:40:55 PM</span> / <span>00:00:00:893</span>
+              <span class="badge pass-bg log float-right">Pass</span>
             </p>
           </div>
           <div class="test-contents d-none">
 <div class="detail-head">
 <div class="p-v-10">
 <div class="info">
-<h5 class="test-status text-fail">Test Name testAuthors - test1</h5>
-<span class='badge badge-success'>10.02.2025 3:10:32 AM</span>
-<span class='badge badge-danger'>10.02.2025 3:10:33 AM</span>
-<span class='badge badge-default'>00:00:00:840</span>
+<h5 class="test-status text-pass">Test Name testActivities - GET</h5>
+<span class='badge badge-success'>10.02.2025 3:40:55 PM</span>
+<span class='badge badge-danger'>10.02.2025 3:40:56 PM</span>
+<span class='badge badge-default'>00:00:00:893</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=1</span>
 <span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
 <span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
 </div>
-<div class="m-t-10 m-l-5"></div>
+<div class="m-t-10 m-l-5">Tests GET request for Activities</div>
 </div>
 </div><div class="detail-body mt-4">
 <table class="table table-sm">
   <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
   <tbody>
       <tr class="event-row">
-        <td><span class="badge log fail-bg">Fail</span></td>
-        <td>3:10:33 AM</td>
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>3:40:56 PM</td>
         <td>
-          <span class='badge white-text red'>expected [201] but found [200]</span>
+          <span class='badge white-text grey'>Endpoint is https://fakerestapi.azurewebsites.net</span>
         </td>
       </tr>
       <tr class="event-row">
-        <td><span class="badge log fail-bg">Fail</span></td>
-        <td>3:10:33 AM</td>
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>3:40:56 PM</td>
         <td>
-          <details>
-    <summary>Click Here To See Exception Logs</summary>
-    [org.testng.Assert.fail(Assert.java:111)<br> org.testng.Assert.failNotEquals(Assert.java:1590)<br> org.testng.Assert.assertEqualsImpl(Assert.java:150)<br> org.testng.Assert.assertEquals(Assert.java:132)<br> org.testng.Assert.assertEquals(Assert.java:1431)<br> org.testng.Assert.assertEquals(Assert.java:1395)<br> org.testng.Assert.assertEquals(Assert.java:1441)<br> org.Utils.RestUtils.performGet(RestUtils.java:69)<br> testAuthors.test1(testAuthors.java:12)<br> java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)<br> java.base/java.lang.reflect.Method.invoke(Method.java:577)<br> org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)<br> org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)<br> org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)<br> org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)<br> org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)<br> org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)<br> org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)<br> org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)<br> java.base/java.util.ArrayList.forEach(ArrayList.java:1511)<br> org.testng.TestRunner.privateRun(TestRunner.java:741)<br> org.testng.TestRunner.run(TestRunner.java:616)<br> org.testng.SuiteRunner.runTest(SuiteRunner.java:421)<br> org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)<br> org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)<br> org.testng.SuiteRunner.run(SuiteRunner.java:312)<br> org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)<br> org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)<br> org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)<br> org.testng.TestNG.runSuitesLocally(TestNG.java:1208)<br> org.testng.TestNG.runSuites(TestNG.java:1112)<br> org.testng.TestNG.run(TestNG.java:1079)<br> com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:65)<br> com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:105)]
-</details>
+          <span class='badge white-text grey'>Method is GET</span>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>3:40:56 PM</td>
+        <td>
+          <span class='badge white-text grey'>Headers are </span>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>3:40:56 PM</td>
+        <td>
+          <table class='markup-table table '><tr><td>Accept</td><td>*/*</td></tr><tr><td>Content-Type</td><td>application/json</td></tr></table>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>3:40:56 PM</td>
+        <td>
+          <span class='badge white-text grey'>Response status is 200</span>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>3:40:56 PM</td>
+        <td>
+          <span class='badge white-text grey'>Response Headers are </span>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>3:40:56 PM</td>
+        <td>
+          <table class='markup-table table '><tr><td>Content-Type</td><td>application/json; charset=utf-8; v=1.0</td></tr><tr><td>Date</td><td>Thu, 02 Oct 2025 12:40:55 GMT</td></tr><tr><td>Server</td><td>Kestrel</td></tr><tr><td>Transfer-Encoding</td><td>chunked</td></tr><tr><td>api-supported-versions</td><td>1.0</td></tr></table>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>3:40:56 PM</td>
+        <td>
+          <span class='badge white-text grey'>Response body is </span>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>3:40:56 PM</td>
+        <td>
+           <div class='json-tree' id='code-block-json-0'></div>
+ <script>
+  function jsonTreeCreate0() { 
+   document.getElementById('code-block-json-0').innerHTML = JSONTree.create([
+    {
+        "id": 1,
+        "title": "Activity 1",
+        "dueDate": "2025-10-02T13:40:56.5907409+00:00",
+        "completed": false
+    },
+    {
+        "id": 2,
+        "title": "Activity 2",
+        "dueDate": "2025-10-02T14:40:56.5907427+00:00",
+        "completed": true
+    },
+    {
+        "id": 3,
+        "title": "Activity 3",
+        "dueDate": "2025-10-02T15:40:56.5907429+00:00",
+        "completed": false
+    },
+    {
+        "id": 4,
+        "title": "Activity 4",
+        "dueDate": "2025-10-02T16:40:56.5907431+00:00",
+        "completed": true
+    },
+    {
+        "id": 5,
+        "title": "Activity 5",
+        "dueDate": "2025-10-02T17:40:56.5907433+00:00",
+        "completed": false
+    },
+    {
+        "id": 6,
+        "title": "Activity 6",
+        "dueDate": "2025-10-02T18:40:56.5907437+00:00",
+        "completed": true
+    },
+    {
+        "id": 7,
+        "title": "Activity 7",
+        "dueDate": "2025-10-02T19:40:56.5907439+00:00",
+        "completed": false
+    },
+    {
+        "id": 8,
+        "title": "Activity 8",
+        "dueDate": "2025-10-02T20:40:56.590744+00:00",
+        "completed": true
+    },
+    {
+        "id": 9,
+        "title": "Activity 9",
+        "dueDate": "2025-10-02T21:40:56.5907442+00:00",
+        "completed": false
+    },
+    {
+        "id": 10,
+        "title": "Activity 10",
+        "dueDate": "2025-10-02T22:40:56.5911597+00:00",
+        "completed": true
+    },
+    {
+        "id": 11,
+        "title": "Activity 11",
+        "dueDate": "2025-10-02T23:40:56.5911604+00:00",
+        "completed": false
+    },
+    {
+        "id": 12,
+        "title": "Activity 12",
+        "dueDate": "2025-10-03T00:40:56.5911606+00:00",
+        "completed": true
+    },
+    {
+        "id": 13,
+        "title": "Activity 13",
+        "dueDate": "2025-10-03T01:40:56.5911608+00:00",
+        "completed": false
+    },
+    {
+        "id": 14,
+        "title": "Activity 14",
+        "dueDate": "2025-10-03T02:40:56.5911609+00:00",
+        "completed": true
+    },
+    {
+        "id": 15,
+        "title": "Activity 15",
+        "dueDate": "2025-10-03T03:40:56.5911611+00:00",
+        "completed": false
+    },
+    {
+        "id": 16,
+        "title": "Activity 16",
+        "dueDate": "2025-10-03T04:40:56.5911613+00:00",
+        "completed": true
+    },
+    {
+        "id": 17,
+        "title": "Activity 17",
+        "dueDate": "2025-10-03T05:40:56.5911614+00:00",
+        "completed": false
+    },
+    {
+        "id": 18,
+        "title": "Activity 18",
+        "dueDate": "2025-10-03T06:40:56.5911618+00:00",
+        "completed": true
+    },
+    {
+        "id": 19,
+        "title": "Activity 19",
+        "dueDate": "2025-10-03T07:40:56.591162+00:00",
+        "completed": false
+    },
+    {
+        "id": 20,
+        "title": "Activity 20",
+        "dueDate": "2025-10-03T08:40:56.5911622+00:00",
+        "completed": true
+    },
+    {
+        "id": 21,
+        "title": "Activity 21",
+        "dueDate": "2025-10-03T09:40:56.5911623+00:00",
+        "completed": false
+    },
+    {
+        "id": 22,
+        "title": "Activity 22",
+        "dueDate": "2025-10-03T10:40:56.5911625+00:00",
+        "completed": true
+    },
+    {
+        "id": 23,
+        "title": "Activity 23",
+        "dueDate": "2025-10-03T11:40:56.5911627+00:00",
+        "completed": false
+    },
+    {
+        "id": 24,
+        "title": "Activity 24",
+        "dueDate": "2025-10-03T12:40:56.5911628+00:00",
+        "completed": true
+    },
+    {
+        "id": 25,
+        "title": "Activity 25",
+        "dueDate": "2025-10-03T13:40:56.591163+00:00",
+        "completed": false
+    },
+    {
+        "id": 26,
+        "title": "Activity 26",
+        "dueDate": "2025-10-03T14:40:56.5911632+00:00",
+        "completed": true
+    },
+    {
+        "id": 27,
+        "title": "Activity 27",
+        "dueDate": "2025-10-03T15:40:56.5911633+00:00",
+        "completed": false
+    },
+    {
+        "id": 28,
+        "title": "Activity 28",
+        "dueDate": "2025-10-03T16:40:56.5911635+00:00",
+        "completed": true
+    },
+    {
+        "id": 29,
+        "title": "Activity 29",
+        "dueDate": "2025-10-03T17:40:56.5911637+00:00",
+        "completed": false
+    },
+    {
+        "id": 30,
+        "title": "Activity 30",
+        "dueDate": "2025-10-03T18:40:56.5911638+00:00",
+        "completed": true
+    }
+]); 
+  }
+  jsonTreeCreate0();
+ </script>
+
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="2"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">Test Name testActivities - POST</p>
+            <p class="text-sm">
+              <span>3:40:56 PM</span> / <span>00:00:00:220</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">Test Name testActivities - POST</h5>
+<span class='badge badge-success'>10.02.2025 3:40:56 PM</span>
+<span class='badge badge-danger'>10.02.2025 3:40:56 PM</span>
+<span class='badge badge-default'>00:00:00:220</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=2</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+<div class="m-t-10 m-l-5">Tests POST request for Activities</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>3:40:56 PM</td>
+        <td>
+          <span class='badge white-text grey'>Endpoint is https://fakerestapi.azurewebsites.net</span>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>3:40:56 PM</td>
+        <td>
+          <span class='badge white-text grey'>Method is POST</span>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>3:40:56 PM</td>
+        <td>
+          <span class='badge white-text grey'>Headers are </span>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>3:40:56 PM</td>
+        <td>
+          <table class='markup-table table '><tr><td>Accept</td><td>*/*</td></tr><tr><td>Content-Type</td><td>application/json</td></tr></table>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>3:40:56 PM</td>
+        <td>
+          <span class='badge white-text grey'>Request body is </span>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>3:40:56 PM</td>
+        <td>
+           <div class='json-tree' id='code-block-json-1'></div>
+ <script>
+  function jsonTreeCreate1() { 
+   document.getElementById('code-block-json-1').innerHTML = JSONTree.create({"title":"QUERCUS AGRIFOLIA POLLEN","dueDate":"2025-10-02T12:40:56.629906Z","id":29,"completed":false}); 
+  }
+  jsonTreeCreate1();
+ </script>
+
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>3:40:56 PM</td>
+        <td>
+          <span class='badge white-text grey'>Response status is 200</span>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>3:40:56 PM</td>
+        <td>
+          <span class='badge white-text grey'>Response Headers are </span>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>3:40:56 PM</td>
+        <td>
+          <table class='markup-table table '><tr><td>Content-Type</td><td>application/json; charset=utf-8; v=1.0</td></tr><tr><td>Date</td><td>Thu, 02 Oct 2025 12:40:56 GMT</td></tr><tr><td>Server</td><td>Kestrel</td></tr><tr><td>Transfer-Encoding</td><td>chunked</td></tr><tr><td>api-supported-versions</td><td>1.0</td></tr></table>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>3:40:56 PM</td>
+        <td>
+          <span class='badge white-text grey'>Response body is </span>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>3:40:56 PM</td>
+        <td>
+           <div class='json-tree' id='code-block-json-2'></div>
+ <script>
+  function jsonTreeCreate2() { 
+   document.getElementById('code-block-json-2').innerHTML = JSONTree.create({
+    "id": 29,
+    "title": "QUERCUS AGRIFOLIA POLLEN",
+    "dueDate": "2025-10-02T12:40:56.629906Z",
+    "completed": false
+}); 
+  }
+  jsonTreeCreate2();
+ </script>
+
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="3"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">Test Name testActivities - GET_ID</p>
+            <p class="text-sm">
+              <span>3:40:56 PM</span> / <span>00:00:00:173</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">Test Name testActivities - GET_ID</h5>
+<span class='badge badge-success'>10.02.2025 3:40:56 PM</span>
+<span class='badge badge-danger'>10.02.2025 3:40:56 PM</span>
+<span class='badge badge-default'>00:00:00:173</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=3</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+<div class="m-t-10 m-l-5">Tests GET request with id for Activities</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>3:40:56 PM</td>
+        <td>
+          <span class='badge white-text grey'>Endpoint is https://fakerestapi.azurewebsites.net</span>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>3:40:56 PM</td>
+        <td>
+          <span class='badge white-text grey'>Method is GET</span>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>3:40:56 PM</td>
+        <td>
+          <span class='badge white-text grey'>Headers are </span>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>3:40:56 PM</td>
+        <td>
+          <table class='markup-table table '><tr><td>Accept</td><td>*/*</td></tr><tr><td>Content-Type</td><td>application/json</td></tr></table>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>3:40:56 PM</td>
+        <td>
+          <span class='badge white-text grey'>Response status is 200</span>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>3:40:56 PM</td>
+        <td>
+          <span class='badge white-text grey'>Response Headers are </span>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>3:40:56 PM</td>
+        <td>
+          <table class='markup-table table '><tr><td>Content-Type</td><td>application/json; charset=utf-8; v=1.0</td></tr><tr><td>Date</td><td>Thu, 02 Oct 2025 12:40:56 GMT</td></tr><tr><td>Server</td><td>Kestrel</td></tr><tr><td>Transfer-Encoding</td><td>chunked</td></tr><tr><td>api-supported-versions</td><td>1.0</td></tr></table>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>3:40:56 PM</td>
+        <td>
+          <span class='badge white-text grey'>Response body is </span>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>3:40:56 PM</td>
+        <td>
+           <div class='json-tree' id='code-block-json-3'></div>
+ <script>
+  function jsonTreeCreate3() { 
+   document.getElementById('code-block-json-3').innerHTML = JSONTree.create({
+    "id": 29,
+    "title": "Activity 29",
+    "dueDate": "2025-10-03T17:40:57.0640964+00:00",
+    "completed": false
+}); 
+  }
+  jsonTreeCreate3();
+ </script>
+
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="4"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">Test Name testActivities - PUT</p>
+            <p class="text-sm">
+              <span>3:40:56 PM</span> / <span>00:00:00:158</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">Test Name testActivities - PUT</h5>
+<span class='badge badge-success'>10.02.2025 3:40:56 PM</span>
+<span class='badge badge-danger'>10.02.2025 3:40:57 PM</span>
+<span class='badge badge-default'>00:00:00:158</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=4</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+<div class="m-t-10 m-l-5">Tests PUT request for Activities</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>3:40:57 PM</td>
+        <td>
+          <span class='badge white-text grey'>Endpoint is https://fakerestapi.azurewebsites.net</span>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>3:40:57 PM</td>
+        <td>
+          <span class='badge white-text grey'>Method is PUT</span>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>3:40:57 PM</td>
+        <td>
+          <span class='badge white-text grey'>Headers are </span>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>3:40:57 PM</td>
+        <td>
+          <table class='markup-table table '><tr><td>Accept</td><td>*/*</td></tr><tr><td>Content-Type</td><td>application/json</td></tr></table>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>3:40:57 PM</td>
+        <td>
+          <span class='badge white-text grey'>Request body is </span>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>3:40:57 PM</td>
+        <td>
+           <div class='json-tree' id='code-block-json-4'></div>
+ <script>
+  function jsonTreeCreate4() { 
+   document.getElementById('code-block-json-4').innerHTML = JSONTree.create({"title":"CONIVAPTAN HYDROCHLORIDE","dueDate":"2025-10-02T12:40:56.989941Z","id":29,"completed":true}); 
+  }
+  jsonTreeCreate4();
+ </script>
+
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>3:40:57 PM</td>
+        <td>
+          <span class='badge white-text grey'>Response status is 200</span>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>3:40:57 PM</td>
+        <td>
+          <span class='badge white-text grey'>Response Headers are </span>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>3:40:57 PM</td>
+        <td>
+          <table class='markup-table table '><tr><td>Content-Type</td><td>application/json; charset=utf-8; v=1.0</td></tr><tr><td>Date</td><td>Thu, 02 Oct 2025 12:40:56 GMT</td></tr><tr><td>Server</td><td>Kestrel</td></tr><tr><td>Transfer-Encoding</td><td>chunked</td></tr><tr><td>api-supported-versions</td><td>1.0</td></tr></table>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>3:40:57 PM</td>
+        <td>
+          <span class='badge white-text grey'>Response body is </span>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>3:40:57 PM</td>
+        <td>
+           <div class='json-tree' id='code-block-json-5'></div>
+ <script>
+  function jsonTreeCreate5() { 
+   document.getElementById('code-block-json-5').innerHTML = JSONTree.create({
+    "id": 29,
+    "title": "CONIVAPTAN HYDROCHLORIDE",
+    "dueDate": "2025-10-02T12:40:56.989941Z",
+    "completed": true
+}); 
+  }
+  jsonTreeCreate5();
+ </script>
+
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="5"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">Test Name testActivities - DELETE</p>
+            <p class="text-sm">
+              <span>3:40:57 PM</span> / <span>00:00:00:163</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">Test Name testActivities - DELETE</h5>
+<span class='badge badge-success'>10.02.2025 3:40:57 PM</span>
+<span class='badge badge-danger'>10.02.2025 3:40:57 PM</span>
+<span class='badge badge-default'>00:00:00:163</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=5</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+<div class="m-t-10 m-l-5">Tests PUT request for Activities</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>3:40:57 PM</td>
+        <td>
+          <span class='badge white-text grey'>Endpoint is https://fakerestapi.azurewebsites.net</span>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>3:40:57 PM</td>
+        <td>
+          <span class='badge white-text grey'>Method is DELETE</span>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>3:40:57 PM</td>
+        <td>
+          <span class='badge white-text grey'>Headers are </span>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>3:40:57 PM</td>
+        <td>
+          <table class='markup-table table '><tr><td>Accept</td><td>*/*</td></tr><tr><td>Content-Type</td><td>application/json</td></tr></table>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>3:40:57 PM</td>
+        <td>
+          <span class='badge white-text grey'>Request body is </span>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>3:40:57 PM</td>
+        <td>
+          
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>3:40:57 PM</td>
+        <td>
+          <span class='badge white-text grey'>Response status is 200</span>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>3:40:57 PM</td>
+        <td>
+          <span class='badge white-text grey'>Response Headers are </span>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>3:40:57 PM</td>
+        <td>
+          <table class='markup-table table '><tr><td>Content-Length</td><td>0</td></tr><tr><td>Date</td><td>Thu, 02 Oct 2025 12:40:56 GMT</td></tr><tr><td>Server</td><td>Kestrel</td></tr><tr><td>api-supported-versions</td><td>1.0</td></tr></table>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>3:40:57 PM</td>
+        <td>
+          <span class='badge white-text grey'>Response body is </span>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>3:40:57 PM</td>
+        <td>
+           <div class='json-tree' id='code-block-json-7'></div>
+ <script>
+  function jsonTreeCreate7() { 
+   document.getElementById('code-block-json-7').innerHTML = JSONTree.create(); 
+  }
+  jsonTreeCreate7();
+ </script>
 
         </td>
       </tr>
@@ -140,25 +860,25 @@
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Started</p>
-<h3>Oct 2, 2025 03:10:32 AM</h3>
+<h3>Oct 2, 2025 03:40:55 PM</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Ended</p>
-<h3>Oct 2, 2025 03:10:33 AM</h3>
+<h3>Oct 2, 2025 03:40:57 PM</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0 text-pass">Tests Passed</p>
-<h3>0</h3>
+<h3>5</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0 text-fail">Tests Failed</p>
-<h3>1</h3>
+<h3>0</h3>
 </div></div>
 </div>
 </div>
@@ -174,12 +894,12 @@
 </div>
 </div>
 <div class="card-footer">
-<div><small data-tooltip='0%'>
-<b>0</b> tests passed
+<div><small data-tooltip='100%'>
+<b>5</b> tests passed
 </small>
 </div>
 <div>
-<small data-tooltip='100%'><b>1</b> tests failed,
+<small data-tooltip='0%'><b>0</b> tests failed,
 <b>0</b> skipped, <b data-tooltip='0%'>0</b> others
 </small>
 </div>
@@ -199,8 +919,8 @@
 <div class="card-footer">
 <div><small data-tooltip='0%'><b>0</b> events passed</small></div>
 <div>
-<small data-tooltip='100%'><b>2</b> events failed,
-<b data-tooltip='%'>0</b> others
+<small data-tooltip='0%'><b>0</b> events failed,
+<b data-tooltip='%'>51</b> others
 </small>
 </div>
 </div>
@@ -216,7 +936,7 @@
 </div></div>
 <script>
 var timeline = {
-"Test Name testAuthors - test1":0.84
+"Test Name testActivities - GET":0.893,"Test Name testActivities - POST":0.22,"Test Name testActivities - GET_ID":0.173,"Test Name testActivities - PUT":0.158,"Test Name testActivities - DELETE":0.163
 };
 </script>
 <div class="row">
@@ -225,8 +945,8 @@ var timeline = {
 <script>
 var statusGroup = {
 parentCount: 5,
-passParent: 0,
-failParent: 1,
+passParent: 5,
+failParent: 0,
 warningParent: 0,
 skipParent: 0,
 childCount: 5,
@@ -243,10 +963,10 @@ skipGrandChild: 0,
 infoGrandChild: 0,
 eventsCount: 5,
 passEvents: 0,
-failEvents: 2,
+failEvents: 0,
 warningEvents: 0,
 skipEvents: 0,
-infoEvents: 0
+infoEvents: 51
 };
 </script>        </div>
       </div>
