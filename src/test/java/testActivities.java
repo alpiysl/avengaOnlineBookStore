@@ -1,7 +1,5 @@
-import com.github.javafaker.Faker;
 import org.Activities.Activities;
 import org.Endpoints.Endpoints;
-import org.Endpoints.RequestTypes;
 import org.Utils.FakerDataUtil;
 import org.Utils.RestUtils;
 import org.Utils.TimeUtil;
@@ -40,7 +38,7 @@ public class testActivities {
                 generatedID, 200);
     }
 
-    @Test(description = "Tests PUT request for Activities", priority = 5)
+    @Test(description = "Tests DELETE request for Activities", priority = 5)
     public void DELETE() {
         RestUtils.performDelete(
                 Endpoints.DELETE_SPECIFIC_ACTIVITY,
