@@ -3,12 +3,14 @@
 <suite name="All Test Suite">
 
     <listeners>
-        <listener class-name="org.Reporter.Setup"></listener>
+        <listener class-name="org.Reporter.Setup"/>
     </listeners>
 
     <test name="test">
         <classes>
-            <class name="testActivities"> </class>
-        </classes>
-    </test>
-</suite>
+             <class name="testActivities"> </class>
+             <class name="testAuthors"> </class>
+            <class name="testBooks"> </class>
+         </classes>
+     </test>
+ </suite>

@@ -1,10 +1,8 @@
 package org.Activities;
 
-import org.json.JSONObject;
-
 import java.util.Map;
 
-public class Activities {
+public class Activities{
 
     public static Map<String, Object> updateAndReturnMap(int id, String title, String dueDate, boolean completed) {
         return Map.of(
