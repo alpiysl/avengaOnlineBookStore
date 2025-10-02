@@ -12,7 +12,6 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
-
 public class ExtentReportManager {
 
     public static ExtentReports extentReports;
@@ -39,25 +38,32 @@ public class ExtentReportManager {
     public static void logPassDetails(String log) {
         Setup.extentTest.get().pass(MarkupHelper.createLabel(log, ExtentColor.GREEN));
     }
+
     public static void logFailureDetails(String log) {
         Setup.extentTest.get().fail(MarkupHelper.createLabel(log, ExtentColor.RED));
     }
+
     public static void logExceptionDetails(String log) {
         Setup.extentTest.get().fail(log);
     }
+
     public static void logInfoDetails(String log) {
         Setup.extentTest.get().info(MarkupHelper.createLabel(log, ExtentColor.GREY));
     }
+
     public static void logWarningDetails(String log) {
         Setup.extentTest.get().warning(MarkupHelper.createLabel(log, ExtentColor.YELLOW));
     }
+
     public static void logJson(String json) {
         Setup.extentTest.get().info(MarkupHelper.createCodeBlock(json, CodeLanguage.JSON));
     }
+
     public static void logHeaders(List<Header> headersList) {
 
-        String[][] arrayHeaders = headersList.stream().map(header -> new String[] {header.getName(), header.getValue()})
-                        .toArray(String[][] :: new);
+        String[][] arrayHeaders = headersList.stream()
+                .map(header -> new String[] { header.getName(), header.getValue() })
+                .toArray(String[][]::new);
         Setup.extentTest.get().info(MarkupHelper.createTable(arrayHeaders));
     }
 }

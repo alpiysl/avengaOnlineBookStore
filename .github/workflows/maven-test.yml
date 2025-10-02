@@ -29,11 +29,19 @@ jobs:
         run: mvn test
         continue-on-error: true
 
+      - name: Rename Extent Report with Timestamp
+        if: always()
+        run: |
+          TIMESTAMP=$(date +'%Y-%m-%d-%H-%M-%S')
+          if [ -f "extent-reports/extent-report.html" ]; then
+            mv extent-reports/extent-report.html extent-reports/extent-report-${TIMESTAMP}.html
+          fi
+
       - name: Upload Extent Report
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: extent-report
+          name: extent-report-${{ github.run_number }}
           path: extent-reports/
           retention-days: 30
 
