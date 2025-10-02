@@ -26,7 +26,7 @@ public class testAuthors {
 
     @Test(description = "Tests GET request with id for Authors", priority = 3)
     public void GET_ID() {
-        RestUtils.performGetWithId(Endpoints.GET_SPECIFIC_AUTHOR, 200, generatedID);
+        RestUtils.performGetWithId(Endpoints.GET_SPECIFIC_AUTHOR, 201, generatedID);
     }
 
     @Test(description = "Tests PUT request for Authors", priority = 4)
