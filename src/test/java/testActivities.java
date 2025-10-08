@@ -20,9 +20,9 @@ public class testActivities {
     public void POST() {
         RestUtils.performPost(
                 Endpoints.POST_ACTIVITIES,
-                Activities.updateAndReturnMap(generatedID, FakerDataUtil.generateTitle(), TimeUtil.getCurrentIsoTime(), FakerDataUtil.generateBool()),
-                200
-        );
+                Activities.updateAndReturnMap(generatedID, FakerDataUtil.generateTitle(), TimeUtil.getCurrentIsoTime(),
+                        FakerDataUtil.generateBool()),
+                200);
     }
 
     @Test(description = "Tests GET request with id for Activities", priority = 3)
@@ -34,7 +34,8 @@ public class testActivities {
     public void PUT() {
         RestUtils.performPut(
                 Endpoints.PUT_SPECIFIC_ACTIVITY,
-                Activities.updateAndReturnMap(generatedID, FakerDataUtil.generateTitle(), TimeUtil.getCurrentIsoTime(), FakerDataUtil.generateBool()),
+                Activities.updateAndReturnMap(generatedID, FakerDataUtil.generateTitle(), TimeUtil.getCurrentIsoTime(),
+                        FakerDataUtil.generateBool()),
                 generatedID, 200);
     }
 
