@@ -1,0 +1,14 @@
+# Exclude unnecessary files from Docker build context
+target/
+extent-reports/
+.git/
+.idea/
+.mvn/
+*.iml
+*.ipr
+*.iws
+.DS_Store
+README.md
+docs/
+.github/
+.gitignore

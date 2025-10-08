@@ -12,6 +12,7 @@ A comprehensive REST API test automation framework for the Online Book Store app
 - [Prerequisites](#prerequisites)
 - [Installation & Setup](#installation--setup)
 - [Running Tests](#running-tests)
+- [Docker Support](#docker-support)
 - [Test Reports](#test-reports)
 - [CI/CD Pipeline](#cicd-pipeline)
 - [API Endpoints](#api-endpoints)
@@ -31,6 +32,7 @@ This project provides automated API testing for the Fake REST API (Online Book S
 | ------------- | ----------- | ----------------------------- |
 | Java          | 18          | Programming Language          |
 | Maven         | 3.x         | Build & Dependency Management |
+| Docker        | Latest      | Containerization              |
 | TestNG        | 7.11.0      | Test Framework                |
 | RestAssured   | 5.5.6       | API Testing Library           |
 | ExtentReports | 5.0.9       | Test Reporting                |
@@ -61,19 +63,29 @@ AVENGA_OnlineBookStore/
 │       └── test.xml                  # TestNG suite configuration
 ├── .github/
 │   └── workflows/
-│       └── maven-test.yml            # GitHub Actions CI/CD pipeline
+│       ├── maven-test.yml            # Maven CI/CD pipeline
+│       └── docker-ci.yml             # Docker CI/CD pipeline
+├── Dockerfile                        # Docker image configuration
+├── docker-compose.yml                # Docker Compose configuration
+├── .dockerignore                     # Docker build exclusions
 ├── pom.xml                           # Maven configuration
 └── README.md                         # Project documentation
 ```
 
 ## Prerequisites
 
-Before running this project, ensure you have the following installed:
+### For Local Execution (Without Docker)
 
 - **Java Development Kit (JDK) 18** or higher
 - **Apache Maven 3.6+**
 - **Git** (for cloning the repository)
 - An IDE (IntelliJ IDEA, Eclipse, or VS Code recommended)
+
+### For Docker Execution
+
+- **Docker** (20.10+)
+- **Docker Compose** (1.29+)
+- **Git** (for cloning the repository)
 
 ## Installation & Setup
 
@@ -124,6 +136,66 @@ Same pattern: GET → POST → GET_ID → PUT → DELETE
 
 Same pattern: GET → POST → GET_ID → PUT → DELETE
 
+## Docker Support
+
+### Building Docker Image
+
+```bash
+docker build -t bookstore-api-tests:latest .
+```
+
+### Running Tests with Docker
+
+#### Option 1: Using Docker Run
+
+```bash
+# Run with default configuration
+docker run --rm bookstore-api-tests:latest
+
+# Run with custom BASE_URL
+docker run --rm -e BASE_URL=https://your-api-url.com bookstore-api-tests:latest
+
+# Run and extract reports
+docker run --name test-run \
+  -v $(pwd)/extent-reports:/app/extent-reports \
+  bookstore-api-tests:latest
+```
+
+#### Option 2: Using Docker Compose
+
+```bash
+# Run tests and generate reports
+docker-compose up
+
+# Run in detached mode
+docker-compose up -d
+
+# View logs
+docker-compose logs -f
+
+# Stop and remove containers
+docker-compose down
+```
+
+### Environment Variables
+
+The Docker container supports the following environment variables:
+
+| Variable     | Description            | Default Value                           |
+| ------------ | ---------------------- | --------------------------------------- |
+| `BASE_URL`   | API base URL           | `https://fakerestapi.azurewebsites.net` |
+| `TEST_SUITE` | TestNG suite file path | `src/test/test.xml`                     |
+
+### Extracting Reports from Docker
+
+Reports are automatically mounted to your local machine when using docker-compose. For docker run:
+
+```bash
+# Copy reports from container
+docker cp test-run:/app/extent-reports/. ./extent-reports/
+docker cp test-run:/app/target/surefire-reports/. ./target/surefire-reports/
+```
+
 ## Test Reports
 
 ### ExtentReports
@@ -147,9 +219,11 @@ _The report shows detailed test execution with timestamps, status, and comprehen
 
 ## CI/CD Pipeline
 
-### GitHub Actions Workflow
+The project includes **two automated CI/CD pipelines** using GitHub Actions:
 
-The project includes an automated CI/CD pipeline that runs on every push to the `master` branch.
+### 1. Maven CI/CD Pipeline (`maven-test.yml`)
+
+Traditional Maven-based pipeline without Docker.
 
 #### Workflow Steps:
 
@@ -161,21 +235,47 @@ The project includes an automated CI/CD pipeline that runs on every push to the 
 6. **Upload Extent Report** - Saves HTML report as artifact
 7. **Upload TestNG Results** - Saves TestNG reports as artifact
 
-#### Accessing Reports from GitHub Actions
+### 2. Docker CI/CD Pipeline (`docker-ci.yml`)
 
-1. Go to the **Actions** tab in your repository
-2. Click on the latest workflow run
-3. Scroll down to **Artifacts** section
-4. Download `extent-report-{run-number}.zip`
-5. Extract and open the HTML file in your browser
+Containerized pipeline that builds and runs tests in Docker.
 
-#### Workflow Configuration
+#### Workflow Steps:
 
-The workflow file is located at `.github/workflows/maven-test.yml` and is triggered by:
+1. **Checkout Code** - Clones the repository
+2. **Set up Docker Buildx** - Configures Docker build environment
+3. **Build Docker Image** - Creates containerized test environment
+4. **Run Tests in Container** - Executes tests inside Docker container
+5. **Extract Reports** - Copies reports from container to host
+6. **Rename Report with Timestamp** - Adds timestamp to the report file
+7. **Upload Artifacts** - Saves reports as GitHub artifacts
+8. **Cleanup** - Removes containers and images
+
+### Pipeline Triggers
+
+Both pipelines are triggered by:
 
 - Push to `master` branch
 - Pull requests to `master` branch
 - Manual workflow dispatch
+
+### Accessing Reports from GitHub Actions
+
+1. Go to the **Actions** tab in your repository
+2. Click on the workflow run (Maven or Docker)
+3. Scroll down to **Artifacts** section
+4. Download the report artifact:
+   - Maven pipeline: `extent-report-{run-number}.zip`
+   - Docker pipeline: `docker-extent-report-{run-number}.zip`
+5. Extract and open the HTML file in your browser
+
+### CI/CD Best Practices Implemented
+
+- **Multi-stage Docker builds** for optimized image size
+- **Environment variable support** for configuration flexibility
+- **Automated report generation** and artifact upload
+- **Continue-on-error** for test failures to ensure report generation
+- **Containerization** for consistent test execution across environments
+- **Parallel pipelines** for both traditional and containerized workflows
 
 ## API Endpoints
 

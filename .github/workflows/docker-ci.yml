@@ -1,0 +1,73 @@
+name: Docker CI/CD Pipeline
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+  workflow_dispatch:
+
+jobs:
+  docker-build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build Docker image
+        run: |
+          docker build -t bookstore-api-tests:latest .
+          docker images
+
+      - name: Run tests in Docker container
+        run: |
+          docker run --name test-container \
+            -e BASE_URL=https://fakerestapi.azurewebsites.net \
+            -e TEST_SUITE=src/test/test.xml \
+            bookstore-api-tests:latest
+        continue-on-error: true
+
+      - name: Extract test reports from container
+        if: always()
+        run: |
+          # Create directories for reports
+          mkdir -p extracted-reports/extent-reports
+          mkdir -p extracted-reports/surefire-reports
+
+          # Copy reports from container
+          docker cp test-container:/app/extent-reports/. extracted-reports/extent-reports/ || echo "No extent reports found"
+          docker cp test-container:/app/target/surefire-reports/. extracted-reports/surefire-reports/ || echo "No surefire reports found"
+
+      - name: Rename Extent Report with Timestamp
+        if: always()
+        run: |
+          TIMESTAMP=$(date +'%Y-%m-%d-%H-%M-%S')
+          if [ -f "extracted-reports/extent-reports/extent-report.html" ]; then
+            mv extracted-reports/extent-reports/extent-report.html extracted-reports/extent-reports/extent-report-${TIMESTAMP}.html
+          fi
+
+      - name: Upload Extent Report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: docker-extent-report-${{ github.run_number }}
+          path: extracted-reports/extent-reports/
+          retention-days: 30
+
+      - name: Upload TestNG Results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: docker-testng-results-${{ github.run_number }}
+          path: extracted-reports/surefire-reports/
+          retention-days: 30
+
+      - name: Cleanup
+        if: always()
+        run: |
+          docker rm -f test-container || true
+          docker rmi bookstore-api-tests:latest || true

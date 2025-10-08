@@ -18,7 +18,11 @@ public class RestUtils {
     protected final static String BASE_URI;
 
     static {
-        BASE_URI = "https://fakerestapi.azurewebsites.net";
+        // Get BASE_URL from environment variable, fallback to default if not set
+        String envBaseUrl = System.getenv("BASE_URL");
+        BASE_URI = (envBaseUrl != null && !envBaseUrl.isEmpty())
+                ? envBaseUrl
+                : "https://fakerestapi.azurewebsites.net";
     }
 
     // returns body request specification
