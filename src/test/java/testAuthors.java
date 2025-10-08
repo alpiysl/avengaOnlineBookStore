@@ -19,9 +19,9 @@ public class testAuthors {
     public void POST() {
         RestUtils.performPost(
                 Endpoints.POST_AUTHORS,
-                Authors.updateAndReturnMap(generatedID, generatedIdBook, FakerDataUtil.generateFirstName(), FakerDataUtil.generateLastName()),
-                200
-        );
+                Authors.updateAndReturnMap(generatedID, generatedIdBook, FakerDataUtil.generateFirstName(),
+                        FakerDataUtil.generateLastName()),
+                200);
     }
 
     @Test(description = "Tests GET request with id for Authors", priority = 3)
@@ -33,7 +33,8 @@ public class testAuthors {
     public void PUT() {
         RestUtils.performPut(
                 Endpoints.PUT_SPECIFIC_AUTHOR,
-                Authors.updateAndReturnMap(generatedID, generatedIdBook, FakerDataUtil.generateFirstName(), FakerDataUtil.generateLastName()),
+                Authors.updateAndReturnMap(generatedID, generatedIdBook, FakerDataUtil.generateFirstName(),
+                        FakerDataUtil.generateLastName()),
                 generatedIdBook, 200);
     }
 

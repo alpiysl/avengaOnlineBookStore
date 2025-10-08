@@ -25,10 +25,8 @@ public class testBooks {
                         FakerDataUtil.generateLorem(10, 10),
                         pageCount,
                         FakerDataUtil.generateLorem(30, 10),
-                        TimeUtil.getCurrentIsoTime()
-                ),
-                200
-        );
+                        TimeUtil.getCurrentIsoTime()),
+                200);
     }
 
     @Test(description = "Tests GET request with id for Books", priority = 3)
@@ -45,8 +43,7 @@ public class testBooks {
                         FakerDataUtil.generateLorem(10, 10),
                         pageCount,
                         FakerDataUtil.generateLorem(30, 10),
-                        TimeUtil.getCurrentIsoTime()
-                ),
+                        TimeUtil.getCurrentIsoTime()),
                 generatedID,
                 200);
     }

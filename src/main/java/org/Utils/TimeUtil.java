@@ -10,8 +10,4 @@ public class TimeUtil {
         ZonedDateTime now = ZonedDateTime.now(ZoneOffset.UTC);
         return now.format(DateTimeFormatter.ISO_INSTANT);
     }
-
-    public static void main(String[] args) {
-        System.out.println(getCurrentIsoTime());
-    }
 }
