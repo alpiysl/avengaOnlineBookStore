@@ -44,11 +44,3 @@ jobs:
           name: extent-report-${{ github.run_number }}
           path: extent-reports/
           retention-days: 30
-
-      - name: Upload TestNG Results
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: testng-results
-          path: target/surefire-reports/
-          retention-days: 30
