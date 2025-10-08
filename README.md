@@ -254,18 +254,6 @@ The pipeline is triggered by:
 - Pull requests to `master` branch
 - Manual workflow dispatch
 
-### Branch Protection
-
-To prevent merging untested code, configure branch protection rules on GitHub:
-
-1. Go to **Settings** → **Branches** → **Add rule**
-2. Branch name pattern: `master`
-3. Enable: **Require status checks to pass before merging**
-4. Select required check: `docker-build-and-test`
-5. Enable: **Do not allow bypassing the above settings**
-
-With this configuration, pull requests cannot be merged until all Docker tests pass successfully.
-
 ### Accessing Reports from GitHub Actions
 
 1. Go to the **Actions** tab in your repository
