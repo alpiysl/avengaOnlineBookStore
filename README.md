@@ -136,6 +136,17 @@ Same pattern: GET → POST → GET_ID → PUT → DELETE
 
 Same pattern: GET → POST → GET_ID → PUT → DELETE
 
+### Note on Test Results
+
+**Important:** Some tests are intentionally designed to fail for demonstration and validation purposes. This is done to:
+
+- Showcase the framework's error handling capabilities
+- Demonstrate ExtentReports' failure reporting features
+- Validate that the CI/CD pipeline correctly handles test failures
+- Show how stack traces and error details are captured in reports
+
+The `continue-on-error: true` configuration in the CI/CD pipeline ensures that reports are generated even when tests fail, allowing you to review detailed failure information in the ExtentReports HTML output.
+
 ## Docker Support
 
 ### Building Docker Image
