@@ -58,14 +58,6 @@ jobs:
           path: extracted-reports/extent-reports/
           retention-days: 30
 
-      - name: Upload TestNG Results
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: docker-testng-results-${{ github.run_number }}
-          path: extracted-reports/surefire-reports/
-          retention-days: 30
-
       - name: Cleanup
         if: always()
         run: |
