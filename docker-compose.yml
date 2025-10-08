@@ -1,0 +1,22 @@
+version: "3.8"
+
+services:
+  api-tests:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: bookstore-api-tests
+    environment:
+      - BASE_URL=https://fakerestapi.azurewebsites.net
+      - TEST_SUITE=src/test/test.xml
+    volumes:
+      # Mount extent-reports to local machine for easy access
+      - ./extent-reports:/app/extent-reports
+      # Mount surefire reports
+      - ./target/surefire-reports:/app/target/surefire-reports
+    networks:
+      - test-network
+
+networks:
+  test-network:
+    driver: bridge
