@@ -1,8 +1,8 @@
 # Online Book Store API Test Automation
 
-[Maven Build and Test](https://github.com/alpiysl/avengaOnlineBookStore/actions/workflows/maven-test.yml)
+[![Docker CI/CD Pipeline](https://github.com/alpiysl/avengaOnlineBookStore/actions/workflows/docker-ci.yml/badge.svg)](https://github.com/alpiysl/avengaOnlineBookStore/actions/workflows/docker-ci.yml)
 
-A comprehensive REST API test automation framework for the Online Book Store application, built with Java, TestNG, RestAssured, and ExtentReports.
+A comprehensive REST API test automation framework for the Online Book Store application, built with Java, TestNG, RestAssured, ExtentReports, and containerized with Docker.
 
 ## Table of Contents
 
@@ -63,7 +63,6 @@ AVENGA_OnlineBookStore/
 │       └── test.xml                  # TestNG suite configuration
 ├── .github/
 │   └── workflows/
-│       ├── maven-test.yml            # Maven CI/CD pipeline
 │       └── docker-ci.yml             # Docker CI/CD pipeline
 ├── Dockerfile                        # Docker image configuration
 ├── docker-compose.yml                # Docker Compose configuration
@@ -230,40 +229,26 @@ _The report shows detailed test execution with timestamps, status, and comprehen
 
 ## CI/CD Pipeline
 
-The project includes **two automated CI/CD pipelines** using GitHub Actions:
+The project includes an **automated Docker CI/CD pipeline** using GitHub Actions.
 
-### 1. Maven CI/CD Pipeline (`maven-test.yml`)
+### Docker CI/CD Pipeline (`docker-ci.yml`)
 
-Traditional Maven-based pipeline without Docker.
-
-#### Workflow Steps:
-
-1. **Checkout Code** - Clones the repository
-2. **Set up JDK 18** - Configures Java environment
-3. **Build with Maven** - Compiles the project (`mvn clean compile`)
-4. **Run Tests** - Executes all tests (`mvn test`)
-5. **Rename Report with Timestamp** - Adds timestamp to the report file
-6. **Upload Extent Report** - Saves HTML report as artifact
-7. **Upload TestNG Results** - Saves TestNG reports as artifact
-
-### 2. Docker CI/CD Pipeline (`docker-ci.yml`)
-
-Containerized pipeline that builds and runs tests in Docker.
+Fully containerized pipeline that builds and runs tests in Docker.
 
 #### Workflow Steps:
 
 1. **Checkout Code** - Clones the repository
 2. **Set up Docker Buildx** - Configures Docker build environment
 3. **Build Docker Image** - Creates containerized test environment
-4. **Run Tests in Container** - Executes tests inside Docker container
-5. **Extract Reports** - Copies reports from container to host
+4. **Run Tests in Container** - Executes tests inside Docker container with environment variables
+5. **Extract Reports** - Copies ExtentReports from container to host
 6. **Rename Report with Timestamp** - Adds timestamp to the report file
-7. **Upload Artifacts** - Saves reports as GitHub artifacts
+7. **Upload Artifacts** - Saves ExtentReport as GitHub artifact
 8. **Cleanup** - Removes containers and images
 
 ### Pipeline Triggers
 
-Both pipelines are triggered by:
+The pipeline is triggered by:
 
 - Push to `master` branch
 - Pull requests to `master` branch
@@ -272,21 +257,19 @@ Both pipelines are triggered by:
 ### Accessing Reports from GitHub Actions
 
 1. Go to the **Actions** tab in your repository
-2. Click on the workflow run (Maven or Docker)
+2. Click on the latest **Docker CI/CD Pipeline** workflow run
 3. Scroll down to **Artifacts** section
-4. Download the report artifact:
-   - Maven pipeline: `extent-report-{run-number}.zip`
-   - Docker pipeline: `docker-extent-report-{run-number}.zip`
+4. Download `docker-extent-report-{run-number}.zip`
 5. Extract and open the HTML file in your browser
 
 ### CI/CD Best Practices Implemented
 
 - **Multi-stage Docker builds** for optimized image size
-- **Environment variable support** for configuration flexibility
-- **Automated report generation** and artifact upload
+- **Environment variable support** for flexible configuration (BASE_URL, TEST_SUITE)
+- **Automated report generation** with timestamp
 - **Continue-on-error** for test failures to ensure report generation
 - **Containerization** for consistent test execution across environments
-- **Parallel pipelines** for both traditional and containerized workflows
+- **Automatic cleanup** of Docker resources after execution
 
 ## API Endpoints
 
