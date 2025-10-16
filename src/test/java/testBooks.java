@@ -1,11 +1,14 @@
 import org.Authors.Authors;
 import org.Books.Books;
 import org.Endpoints.Endpoints;
+import org.Reporter.Setup;
 import org.Utils.FakerDataUtil;
 import org.Utils.RestUtils;
 import org.Utils.TimeUtil;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
+@Listeners(Setup.class)
 public class testBooks {
 
     private final int generatedID = FakerDataUtil.generateId();

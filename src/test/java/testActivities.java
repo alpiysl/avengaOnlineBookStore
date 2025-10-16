@@ -1,12 +1,15 @@
 import org.Activities.Activities;
 import org.Endpoints.Endpoints;
+import org.Reporter.Setup;
 import org.Utils.FakerDataUtil;
 import org.Utils.RestUtils;
 import org.Utils.TimeUtil;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import java.util.Map;
 
+@Listeners(Setup.class)
 public class testActivities {
 
     private final int generatedID = FakerDataUtil.generateId();
